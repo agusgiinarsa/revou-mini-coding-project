@@ -1,187 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Learn Javascript</title>
-    <link rel="stylesheet" href="css/index-first.css" />
-    <style>
-      .revou {
-        height: 300px;
-        width: 300px;
-        background-color: blueviolet;
-      }
-      @media screen and (min-width: 768px) {
-        .revou {
-          height: 400px;
-          width: 400px;
-          background-color: aqua;
-        }
-      }
-      @media screen and (min-width: 1024px) {
-        .revou {
-          height: 500px;
-          width: 500px;
-          background-color: burlywood;
-        }
-      }
-      #calculator {
-        background-color: rgb(207, 51, 207);
-        border: 20px solid black;
-        height: 400px;
-        width: 400px;
-        margin: 0 auto;
-        padding: 40px;
-      }
-      nav {
-        font-size: 20px;
-        /* color: #fefefe; */
-        font-weight: 600;
-        display: flex;
-        justify-content: space-between;
-      }
-    </style></head
-  >ß
-  <body>
-    <header>
-      <nav>
-        <a
-          class="nav-link"
-          href="http://google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Google</a
-        >
-        <a
-          class="nav-link"
-          href="http://google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Yahoo</a
-        >
-        <a
-          class="nav-link"
-          href="http://google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Youtube</a
-        >
-        <a
-          class="nav-link"
-          href="http://google.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          >Titkok</a
-        >
-      </nav>
-    </header>
-    <!-- content -->
-    <main>
-      <section>
-        <h1>Pengenalan</h1>
-        <p>Pargraf</p>
-        <ul>
-          <li>haloo</li>
-          <li>haloo</li>
-          <li>haloo</li>
-          <li>haloo</li>
-        </ul>
-        <div>division</div>
-        <span>haloo</span>
-      </section>
-      <!-- content -->
-      <section id="calculator">
-        <h1 class="calculator-title">Title</h1>
-        <p class="calculator-paragraf">okee</p>
-        <form action="" class="calculator-form">
-          <div class="gender">
-            <label for="" class="gender-label"></label>
-            <input type="text" class="gender-input" />
+<html>
+<head>
+	<title>Kalkulator Segitiga & Jajar Genjang</title>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+    <div class="tab-container">
+        <div class="tabs">
+          <p>Pilih Bangun Ruang : </p>
+          <button class="tab-link active" data-tab="tab1">Segitiga</button>
+          <button class="tab-link" data-tab="tab2">Jajar Genjang</button>
+        </div>
+        <div class="card-container">
+          <div class="card active" data-tab="tab1">
+            <h1>Segitiga</h1>
+            <img src="assets/images/segitiga.png">
+            <h3>Luas</h3>
+            <p><b>Rumus :</b><br>
+            L = 1/2 x a x t<br><br>
+            <b>Dimana :</b><br>
+            a = Alas<br>
+            t = Tinggi</p>
+            <form id="segitiga_luas_form">
+                <label for="segitiga_alas">Alas :</label>
+                <input type="number" id="segitiga_alas" name="segitiga_alas" required>
+                <label for="segitiga_tinggi">Tinggi :</label>
+                <input type="number" id="segitiga_tinggi" name="segitiga_tinggi" required>
+                <button type="button" class="button_hitung" onclick="segitiga_hitung_luas()">Hitung</button>
+                <button type="button" class="button_reset" onclick="segitiga_reset_luas()">Reset</button>
+                <div id="segitiga_luas_error"></div>
+            </form>
+            <div id="segitiga_luas_hasil"></div>
+            <h3>Keliling</h3>
+            <p><b>Rumus :</b><br>
+            K = a + b + c<br><br>
+            <b>Dimana :</b><br>
+            a, b, c = Sisi-sisi</p>
+            <form id="segitiga_keliling_form">
+                <label for="segitiga_sisi_a">Sisi A :</label>
+                <input type="number" id="segitiga_sisi_a" name="segitiga_sisi_a" required>
+                <label for="segitiga_sisi_b">Sisi B :</label>
+                <input type="number" id="segitiga_sisi_b" name="segitiga_sisi_b" required>
+                <label for="segitiga_sisi_c">Sisi C :</label>
+                <input type="number" id="segitiga_sisi_c" name="segitiga_sisi_c" required>
+                <button type="button" class="button_hitung" onclick="segitiga_hitung_keliling()">Hitung</button>
+                <button type="button" class="button_reset" onclick="segitiga_reset_keliling()">Reset</button>
+                <div id="segitiga_keliling_error"></div>
+            </form>
+            <div id="segitiga_keliling_hasil"></div>
           </div>
-        </form>
-      </section>
-      <section id="result">
-        <h1 class="result-title">title</h1>
-        <h1 class="result-subtitle">title</h1>
-      </section>
-      <section>
-        <label for="number-one">Number One:</label>
-        <input type="number" id="number-one" name="number-one" />
-
-        <label for="number-two">Number Two:</label>
-        <input type="number" id="number-two" name="number-two" />
-
-        <button onclick="calculate()">Submit</button>
-
-        <p>Result: <span id="show-results"></span></p>
-      </section>
-      <section>
-        <form onsubmit="handleSubmit(event)">
-          <label for="input-one">Input One (String):</label>
-          <input
-            type="text"
-            id="input-one"
-            name="input-one"
-            pattern="[A-Za-z]+"
-            required
-          />
-
-          <label for="input-two">Input Two (Number):</label>
-          <input
-            type="text"
-            id="input-two"
-            name="input-two"
-            pattern="[0-9]+"
-            required
-          />
-
-          <label for="input-three">Input Three (Number):</label>
-          <input
-            type="text"
-            id="input-three"
-            name="input-three"
-            pattern="[0-9]+"
-            required
-          />
-
-          <fieldset>
-            <legend>Select a Theme:</legend>
-            <label for="light-theme">
-              <input
-                type="radio"
-                id="light-theme"
-                name="input-four"
-                value="light"
-                checked
-              />
-              Light Theme
-            </label>
-
-            <label for="dark-theme">
-              <input
-                type="radio"
-                id="dark-theme"
-                name="input-four"
-                value="dark"
-              />
-              Dark Theme
-            </label>
-          </fieldset>
-
-          <button type="submit">Submit</button>
-        </form>
-
-        <span>Name: <span id="show-name"></span></span>
-        <br />
-        <span>Result: <span id="show-result"></span></span>
-        <br />
-        <span>Theme: <span id="show-theme"></span></span>
-      </section>
-      <section>ID / # > class / . > tag html</section>
-    </main>
-    <!-- Centnt  -->
-    <footer>copyright 2022</footer>
-  </body>
-  <script src="./js/input.js"></script>
+          <div class="card" data-tab="tab2">
+            <h1>Jajar Genjang</h1>
+            <img src="assets/images/jajar_genjang.png">
+            <h3>Luas</h3>
+            <p><b>Rumus :</b><br>
+            L = a x t<br><br>
+            <b>Dimana :</b><br>
+            a = Alas<br>
+            t = Tinggi</p>
+            <h3>Keliling</h3>
+            <p><b>Rumus :</b><br>
+            K = 2 x (a + b)<br><br>
+            <b>Dimana :</b><br>
+            a = Alas<br>
+            b = Sisi miring</p>
+            <form id="jajar_genjang_form">
+                <label for="jajar_genjang_alas">Alas :</label>
+                <input type="number" id="jajar_genjang_alas" name="jajar_genjang_alas" required>
+                <label for="jajar_genjang_tinggi">Tinggi :</label>
+                <input type="number" id="jajar_genjang_tinggi" name="jajar_genjang_tinggi" required>
+                <label for="jajar_genjang_sisi">Sisi Miring :</label>
+                <input type="number" id="jajar_genjang_sisi" name="jajar_genjang_sisi" required>
+                <button type="button" class="button_hitung" onclick="jajar_genjang_hitung()">Hitung</button>
+                <button type="button" class="button_reset" onclick="jajar_genjang_reset()">Reset</button>
+                <div id="jajar_genjang_error"></div>
+            </form>
+            <div id="jajar_genjang_hasil"></div>
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript" src="assets/js/index.js"></script>
+</body>
 </html>

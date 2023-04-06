@@ -1,0 +1,104 @@
+/* Tabulasi */
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    justify-content: center;
+  }
+  
+  .tab-link {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .tab-link.active {
+    color: #fff;
+    background-color: #333;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .card {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  .card.active {
+    display: block;
+  }
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+    .tabs {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tab-link {
+      flex: 0 0 auto;
+      margin: 5px;
+    }
+  }
+
+/* Form */
+body {
+    font-family: Arial, sans-serif;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+input[type="number"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.button_hitung {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button_reset {
+    padding: 10px;
+    background-color: red;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#segitiga_luas_error, #segitiga_keliling_error, #jajar_genjang_error {
+    color: red;
+    margin-top: 5px;
+}
+#segitiga_luas_hasil, #segitiga_keliling_hasil, #jajar_genjang_hasil {
+    margin-top: 10px;
+    font-weight: bold;
+}
